@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_today">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_friends"
         android:name="com.example.moodtracker.ui.home.HomeFragment"
         android:label="@string/title_friends"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_friends" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_today"
         android:name="com.example.moodtracker.ui.dashboard.DashboardFragment"
         android:label="@string/title_today"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_today" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_statistics"
         android:name="com.example.moodtracker.ui.notifications.NotificationsFragment"
         android:label="@string/title_statistics"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_statistics" />
 </navigation>

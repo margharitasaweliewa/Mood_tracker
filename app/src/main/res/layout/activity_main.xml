@@ -29,19 +29,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
-
     <Button
         android:id="@+id/colorPicker"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/circle_colorpicker"
-        app:icon="@drawable/ic_home_black_24dp"
+        android:onClick="onClickColorButton"
+        app:icon="@drawable/ic_pencil"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onClickColorButton"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

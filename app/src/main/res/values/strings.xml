@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mood tracker</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_today">Today</string>
+    <string name="title_statistics">Statistics</string>
+    <string name="errorMessage">Button was clicked</string>
+</resources>

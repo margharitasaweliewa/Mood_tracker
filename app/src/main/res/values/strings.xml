@@ -4,4 +4,12 @@
     <string name="title_today">Today</string>
     <string name="title_statistics">Statistics</string>
     <string name="errorMessage">Button was clicked</string>
+    <string name="daily_picture">CREATE DAILY PICTURE</string>
+    <string name="daily_notes">ENTER YOUR DAILY NOTES</string>
+    <string name="information_to_share">INFORMATION TO SHARE</string>
+    <string name="people_share_to">PEOPLE SHARE TO</string>
+    <string name="button_color">DAILY COLOR</string>
+    <string name="button_picture">DAILY PICTURE</string>
+    <string name="button_balance_wheel">BALANCE WHEEL</string>
+    <string name="button_notes">DAILY NOTES</string>
 </resources>

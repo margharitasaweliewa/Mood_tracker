@@ -1,5 +1,7 @@
 package com.example.moodtracker;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.moodtracker.databinding.ActivityMainBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 import com.jaredrummler.android.colorpicker.ColorShape;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
     private Button colorPicker;
     private ActivityMainBinding binding;
     private static final int firstId = 1;
+    private Button createDailyPicture;
 // id нужны для реализации метода onColorSelected
 
     @Override
@@ -44,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
         NavigationUI.setupWithNavController(binding.navView, navController);
         //Инициализируем поля
         colorPicker = findViewById(R.id.colorPicker);
+        createDailyPicture = findViewById(R.id.dailypicture);
+        //Описываем поведение при нажатии на кнопку
+
 
         //Весим обработчик события при нажатии на кнопку
     }
@@ -64,6 +71,31 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 createColorPickerDialog();
                 break;
         }
+    }
+    public void onClickDailyPictureButton(View view) {
+        createDailyPicture = findViewById(R.id.dailypicture);
+        //Описываем поведение при нажатии на кнопку
+        createDailyPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                builder.setTitle("Daily Picture");
+                builder.setMessage("Do you want to choose a picture or take a photo?");
+                builder.setNeutralButton("CHOOSE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.setPositiveButton("TAKE PHOTO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
+            }
+        });
     }
     @Override
     public void onColorSelected(int dialogId, int color) {

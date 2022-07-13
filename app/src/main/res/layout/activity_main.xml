@@ -69,7 +69,7 @@
         android:layout_marginStart="180dp"
         android:layout_marginTop="88dp"
         android:background="@drawable/circle_colorpicker"
-        android:onClick="onClickColorButton"
+        android:onClick="onClickDailyPictureButton"
         app:icon="@drawable/ic_pencil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

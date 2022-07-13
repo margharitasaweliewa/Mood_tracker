@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="sharing_button">#FF370012</color>
     <color name="notactivebuttoncolor">#FF3700B4</color>
+    <color name="activebuttoncolor">#FFFFFFFF</color>
 </resources>

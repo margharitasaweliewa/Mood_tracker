@@ -12,4 +12,10 @@
     <string name="button_picture">DAILY PICTURE</string>
     <string name="button_balance_wheel">BALANCE WHEEL</string>
     <string name="button_notes">DAILY NOTES</string>
+    <string name="name_food">Food</string>
+    <string name="name_sport">Sport</string>
+    <string name="name_social">Social</string>
+    <string name="name_sleep">Sleep</string>
+    <string name="name_work">Work</string>
+    <string name="name_relax">Relax</string>
 </resources>

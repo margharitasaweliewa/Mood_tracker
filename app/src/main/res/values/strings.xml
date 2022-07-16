@@ -18,4 +18,5 @@
     <string name="name_sleep">Sleep</string>
     <string name="name_work">Work</string>
     <string name="name_relax">Relax</string>
+    <string name="SAVE">SAVE</string>
 </resources>

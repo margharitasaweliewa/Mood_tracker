@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.moodtracker.ui.dashboard.CustomActivityChart;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
     private ActivityMainBinding binding;
     private static final int firstId = 1;
     private Button createDailyPicture;
+    private EditText balanceWheelSector;
+    private Button ChangeWheelSettings;
 // id нужны для реализации метода onColorSelected
 
     @Override
@@ -70,6 +73,23 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 .show(this);
 // полный список атрибутов класса ColorPickerDialog смотрите ниже
     }
+    //Меняем наименование атрибутов колеса баланса
+    public void onClickSettingsBalanceWheel(View view) {
+
+        ChangeWheelSettings = findViewById(R.id.changeWheelSettings);
+        ChangeWheelSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Я тут просто все поля перебираю, идея не самая лучшая, конечно, но простая:)
+                balanceWheelSector = findViewById(R.id.editText_food);
+                if(balanceWheelSector.getText().toString().trim().equals("")){}
+                else {
+
+                }
+            }
+        });
+
+    }
     public void onClickColorButton(View view) {
         switch (view.getId()) {
             case R.id.colorPicker:
@@ -77,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 break;
         }
     }
+
     public void onClickDailyPictureButton(View view) {
         createDailyPicture = findViewById(R.id.dailypicture);
         //Описываем поведение при нажатии на кнопку

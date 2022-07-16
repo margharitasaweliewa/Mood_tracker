@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.moodtracker.ui.dashboard.CustomActivityChart;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
 
 
         //Весим обработчик события при нажатии на кнопку
+
+
+        CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
+
     }
     private void createColorPickerDialog() {
         ColorPickerDialog.newBuilder()

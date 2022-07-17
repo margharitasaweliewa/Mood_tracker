@@ -38,7 +38,7 @@
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="304dp"
         android:onClick="onClickColorButton"
         android:text="@string/daily_picture"
         android:textSize="20sp"
@@ -53,7 +53,7 @@
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="384dp"
         android:onClick="onClickDailyPictureButton"
         android:text="@string/daily_notes"
         android:textSize="20sp"
@@ -121,31 +121,31 @@ android:layout_marginTop="40dp"
 app:srcCompat="@drawable/ic_dumbbell"
     tools:ignore="MissingConstraints" />
 
-<ImageView
-android:id="@+id/icon_social"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="34dp"
-    app:layout_constraintCircle="@id/customActivityChart"
-    app:layout_constraintCircleRadius="155dp"
-    app:layout_constraintCircleAngle="147"
-app:srcCompat="@drawable/ic_people"
-    tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/icon_social"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintCircle="@id/customActivityChart"
+        app:layout_constraintCircleAngle="147"
+        app:layout_constraintCircleRadius="155dp"
+        app:srcCompat="@drawable/ic_people"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="255dp" />
 
-<ImageView
-android:id="@+id/icon_pillow"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="34dp"
-    app:layout_constraintCircle="@id/customActivityChart"
-    app:layout_constraintCircleRadius="148dp"
-    app:layout_constraintCircleAngle="210"
-app:srcCompat="@drawable/ic_pillow"
-    tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/icon_pillow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintCircle="@id/customActivityChart"
+        app:layout_constraintCircleAngle="210"
+        app:layout_constraintCircleRadius="148dp"
+        app:srcCompat="@drawable/ic_pillow"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="245dp" />
 
-<ImageView
+    <ImageView
 android:id="@+id/icon_work"
 android:layout_width="30dp"
 android:layout_height="30dp"
@@ -156,5 +156,53 @@ android:layout_marginTop="34dp"
     app:layout_constraintCircleAngle="270"
 app:srcCompat="@drawable/ic_work"
     tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView_work"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_work"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/textView_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_food"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <TextView
+        android:id="@+id/textView_relax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_relax"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+        android:id="@+id/textView_sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_sport"
+        tools:layout_editor_absoluteX="350dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/textView_sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_sleep"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="287dp" />
+
+    <TextView
+        android:id="@+id/textView_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_social"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="287dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.moodtracker;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -31,9 +32,6 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
     private ActivityMainBinding binding;
     private static final int firstId = 1;
     private Button createDailyPicture;
-    private EditText balanceWheelSector;
-    private TextView balanceWheelSectorchanged;
-    private Button ChangeWheelSettings;
 // id нужны для реализации метода onColorSelected
 
     @Override
@@ -55,15 +53,10 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
         //Инициализируем поля
         colorPicker = findViewById(R.id.colorPicker);
         createDailyPicture = findViewById(R.id.dailypicture);
-        //Описываем поведение при нажатии на кнопку
-
-
-        //Весим обработчик события при нажатии на кнопку
-
-
         CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
-
     }
+    //Функция для перехода на экран настроек
+
     private void createColorPickerDialog() {
         ColorPickerDialog.newBuilder()
                 .setColor(Color.RED)
@@ -73,63 +66,8 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 .setColorShape(ColorShape.SQUARE)
                 .setDialogId(1)
                 .show(this);
-// полный список атрибутов класса ColorPickerDialog смотрите ниже
     }
-    //Меняем наименование атрибутов колеса баланса
-    public void onClickSettingsBalanceWheel(View view) {
-        String newName;
-        //Я тут просто их перебираю, возможно, это не самая лучшая идея(но хардкодить можно в целом)
-        //Food
-        balanceWheelSector = findViewById(R.id.editText_food);
-        if(balanceWheelSector.getText().toString().trim().equals("")){}
-        else {//Меняем наименование в настройках
-            newName = balanceWheelSector.getText().toString().trim();
-            balanceWheelSector.setText(newName);
-            //Меняем наименование на основном экране
-            balanceWheelSectorchanged = findViewById(R.id.textView_food);
-            balanceWheelSectorchanged.setText(newName);
-        }
-        //Relax
-        balanceWheelSector = findViewById(R.id.editText_relax);
-        if(balanceWheelSector.getText().toString().trim().equals("")){}
-        else {//Меняем наименование в настройках
-            newName = balanceWheelSector.getText().toString().trim();
-            balanceWheelSector.setText(newName);
-            //Меняем наименование на основном экране
-            balanceWheelSectorchanged = findViewById(R.id.textView_relax);
-            balanceWheelSectorchanged.setText(newName);
-        }
-        //Sport
-        balanceWheelSector = findViewById(R.id.editText_sport);
-        if(balanceWheelSector.getText().toString().trim().equals("")){}
-        else {//Меняем наименование в настройках
-            newName = balanceWheelSector.getText().toString().trim();
-            balanceWheelSector.setText(newName);
-            //Меняем наименование на основном экране
-            balanceWheelSectorchanged = findViewById(R.id.textView_sport);
-            balanceWheelSectorchanged.setText(newName);
-        }
-        //Social
-        balanceWheelSector = findViewById(R.id.editText_social);
-        if(balanceWheelSector.getText().toString().trim().equals("")){}
-        else {//Меняем наименование в настройках
-            newName = balanceWheelSector.getText().toString().trim();
-            balanceWheelSector.setText(newName);
-            //Меняем наименование на основном экране
-            balanceWheelSectorchanged = findViewById(R.id.textView_social);
-            balanceWheelSectorchanged.setText(newName);
-        }
-        //Sleep
-        balanceWheelSector = findViewById(R.id.editText_sleep);
-        if(balanceWheelSector.getText().toString().trim().equals("")){}
-        else {//Меняем наименование в настройках
-            newName = balanceWheelSector.getText().toString().trim();
-            balanceWheelSector.setText(newName);
-            //Меняем наименование на основном экране
-            balanceWheelSectorchanged = findViewById(R.id.textView_sleep);
-            balanceWheelSectorchanged.setText(newName);
-        }
-    }
+
     public void onClickColorButton(View view) {
         switch (view.getId()) {
             case R.id.colorPicker:
@@ -137,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 break;
         }
     }
-
     public void onClickDailyPictureButton(View view) {
         createDailyPicture = findViewById(R.id.dailypicture);
         //Описываем поведение при нажатии на кнопку
@@ -162,6 +99,11 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
                 builder.show();
             }
         });
+    }
+    //Переход на страницу настроек
+    public void onClickWheelSettings(View view) {
+        Intent intent = new Intent(this, BalanceWheelSettings.class);
+        startActivity(intent);
     }
     @Override
     public void onColorSelected(int dialogId, int color) {

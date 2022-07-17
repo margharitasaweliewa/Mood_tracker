@@ -25,7 +25,8 @@
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/ic_today.xml" value="0.247" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/ic_work.xml" value="0.1" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/sharing_button.xml" value="0.226" />
-        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_balance_wheel_settings.xml" value="0.21557971014492755" />
+        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/balance_wheel_settings.xml" value="0.264" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_dashboard.xml" value="0.223731884057971" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_friends.xml" value="0.22644927536231885" />

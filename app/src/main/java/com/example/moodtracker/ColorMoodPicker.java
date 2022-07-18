@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.slider.Slider;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
@@ -25,7 +26,7 @@ public TextView moodChosen;
 public Button mainColorPicker;
 public Button saveColorMood;
 public int colorChosen;
-    @RequiresApi(api = Build.VERSION_CODES.M)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,40 @@ public int colorChosen;
             startActivity(sendingIntent);
 
         });
+
+
+        //adding listener to slider
+        moodSlider.addOnChangeListener((slider, value, fromUser) -> {
+            //В зависимости от текущего значения ставлю значение настроения
+            switch ((int)value){
+                case 0:
+                    currentMood = "Severe depressive";
+                    break;
+                case 1:
+                    currentMood = "Depressive";
+                    break;
+                case 2:
+                    currentMood = "Sad";
+                    break;
+                case 3:
+                    currentMood = "Indifferent";
+                    break;
+                case 4:
+                    currentMood = "Happy";
+                    break;
+                case 5:
+                    currentMood = "Hypomanic";
+                    break;
+                case 6:
+                    currentMood = "Manic";
+                    break;
+            }
+            //Ставим значение текстового поля в завимости от выбранного настроения
+            moodChosen = findViewById(R.id.moodChosen);
+            moodChosen.setText(currentMood);
+
+        });
+            // Responds to when slider's value is changed
 
     }
     //Описываем поведение при нажатии кнопки
@@ -89,38 +124,4 @@ public int colorChosen;
     public void onDialogDismissed(int dialogId) {
 
     }
-    //Описываем поведение при изменении слайдера, не знаю, как навесить на событие перемещения слайдера
-    public void ChangeSlider(){
-        //Получаю текущее значение у слайдера
-        moodSlider = findViewById(R.id.moodSlider);
-        int moodNumber = (int)moodSlider.getValue();
-        //В зависимости от текущего значения ставлю значение настроения
-        switch (moodNumber){
-            case 0:
-                currentMood = "Severe depressive";
-                break;
-            case 1:
-                currentMood = "Depressive";
-                break;
-            case 2:
-                currentMood = "Sad";
-                break;
-            case 3:
-                currentMood = "Indifferent";
-                break;
-            case 4:
-                currentMood = "Happy";
-                break;
-            case 5:
-                currentMood = "Hypomanic";
-                break;
-            case 6:
-                currentMood = "Manic";
-                break;
-        }
-        //Ставим значение текстового поля в завимости от выбранного настроения
-        moodChosen = findViewById(R.id.moodChosen);
-        moodChosen.setText(currentMood);
-    }
-
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -27,8 +28,10 @@ public class CustomActivityChart extends View {
     private static final int HEXAGONS = 3;
 
 
+
     public CustomActivityChart(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
         init();
 
     }
@@ -36,24 +39,30 @@ public class CustomActivityChart extends View {
     //draw initial components
     private void init() {
 
+        createHexagon();
+
+
+
+    }
+
+    private void createHexagon() {
+
         List<Integer> coords = new ArrayList<>();
         coords.add(200);
         coords.add(50);
         coords.add(900);
         coords.add(750);
 
-         hexagons = new ArrayList<>();
-
-
+        hexagons = new ArrayList<>();
 
         //3 hexes
         for (int i = 0; i < HEXAGONS; i++) {
             hexagons.add(new Hexagon(Color.GRAY));
             hexagons.get(i).
                     computeHex(new Rect(coords.get(0)
-                                        ,coords.get(1),
-                                        coords.get(2),
-                                        coords.get(3)));
+                            ,coords.get(1),
+                            coords.get(2),
+                            coords.get(3)));
 
             for (int j = 0; j < coords.size(); j++) {
                 if (j < 2)
@@ -62,9 +71,12 @@ public class CustomActivityChart extends View {
                     coords.set(j,coords.get(j) - STEP);
             }
         }
+    }
 
+    private void createDots() {
 
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -72,5 +84,7 @@ public class CustomActivityChart extends View {
              hexagons) {
             hex.draw(canvas);
         }
+
+
     }
 }

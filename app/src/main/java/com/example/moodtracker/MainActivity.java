@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.moodtracker.databinding.ActivityMainBinding;
 import com.example.moodtracker.ui.dashboard.CustomActivityChart;
+import com.example.moodtracker.ui.dashboard.CustomDot;
+import com.example.moodtracker.ui.dashboard.CustomDotsNet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
         colorPicker = findViewById(R.id.colorPicker);
         createDailyPicture = findViewById(R.id.dailypicture);
         CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
+        CustomDotsNet customDotsNet = new CustomDotsNet(this,null);
 
     }
 

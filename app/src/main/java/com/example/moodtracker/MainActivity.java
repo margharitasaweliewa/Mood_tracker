@@ -1,15 +1,18 @@
 package com.example.moodtracker;
 
+
+
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.moodtracker.ui.dashboard.CustomActivityChart;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,6 +37,14 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
     private Button createDailyPicture;
 // id нужны для реализации метода onColorSelected
 
+    //поля для TextView
+    private TextView foodTextView;
+    private TextView relaxTextView;
+    private TextView sportTextView;
+    private TextView sleepTextView;
+    private TextView socialTextView;
+    private TextView workTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +65,49 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
         colorPicker = findViewById(R.id.colorPicker);
         createDailyPicture = findViewById(R.id.dailypicture);
         CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
+
     }
+
+
+    /*ивент срабатывает когда мы возвращаемся в этот активити из другого
+    * https://developer.android.com/guide/components/activities/activity-lifecycle
+    *
+    * */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //получаем интент из другого активити
+        Intent intent = getIntent();
+
+        /* убеждаемся что этот интент пришел именно с окна настроек
+        колеса баланса, а не с другого
+        * */
+        if (intent.hasExtra("food")) {
+
+            /* ищем компоненты, приходится делать это второй раз ибо
+            *  программа очистила содержимое этих переменных
+            *  после того как мы временно ушли с этого активити,
+            *  т.е. после onClickWheelSettings(View view)
+            *   */
+            foodTextView = findViewById(R.id.textView_food);
+            relaxTextView = findViewById(R.id.textView_relax);
+            sportTextView = findViewById(R.id.textView_sport);
+            sleepTextView = findViewById(R.id.textView_sleep);
+            socialTextView = findViewById(R.id.textView_social);
+            workTextView = findViewById(R.id.textView_work);
+
+            //устанавливаем текст
+            foodTextView.setText(intent.getStringExtra("food"));
+            relaxTextView.setText(intent.getStringExtra("relax"));
+            sportTextView.setText(intent.getStringExtra("sport"));
+            sleepTextView.setText(intent.getStringExtra("sleep"));
+            socialTextView.setText(intent.getStringExtra("social"));
+            workTextView.setText(intent.getStringExtra("work"));
+
+        }
+    }
+
     //Функция для перехода на экран настроек
 
     private void createColorPickerDialog() {
@@ -103,6 +156,29 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
     //Переход на страницу настроек
     public void onClickWheelSettings(View view) {
         Intent intent = new Intent(this, BalanceWheelSettings.class);
+
+        foodTextView = findViewById(R.id.textView_food);
+        relaxTextView = findViewById(R.id.textView_relax);
+        sportTextView = findViewById(R.id.textView_sport);
+        sleepTextView = findViewById(R.id.textView_sleep);
+        socialTextView = findViewById(R.id.textView_social);
+        workTextView = findViewById(R.id.textView_work);
+
+
+        String foodText = foodTextView.getText().toString();
+        String relaxText = relaxTextView.getText().toString();
+        String sportText = sportTextView.getText().toString();
+        String sleepText = sleepTextView.getText().toString();
+        String socialText = socialTextView.getText().toString();
+        String workText = workTextView.getText().toString();
+
+        intent.putExtra("food", foodText);
+        intent.putExtra("relax", relaxText);
+        intent.putExtra("sport", sportText);
+        intent.putExtra("sleep", sleepText);
+        intent.putExtra("social", socialText);
+        intent.putExtra("work", workText);
+
         startActivity(intent);
     }
     @Override

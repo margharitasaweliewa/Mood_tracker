@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.moodtracker.databinding.ActivityColorMoodPickerBinding;
+import com.example.moodtracker.databinding.ActivityMainBinding;
+import com.example.moodtracker.ui.CustomTransparentRecktangle;
 import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.slider.Slider;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
@@ -26,11 +29,20 @@ public TextView moodChosen;
 public Button mainColorPicker;
 public Button saveColorMood;
 public int colorChosen;
+private ActivityColorMoodPickerBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.TranslucentBackground);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_color_mood_picker);
+
+
+        binding = ActivityColorMoodPickerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        //setContentView(R.layout.activity_color_mood_picker);
+        this.setFinishOnTouchOutside(false);
+
+
 
         //получаем Intent от MainActivity
         Intent intent = getIntent();
@@ -87,7 +99,8 @@ public int colorChosen;
             moodChosen.setText(currentMood);
 
         });
-            // Responds to when slider's value is changed
+
+
 
     }
     //Описываем поведение при нажатии кнопки

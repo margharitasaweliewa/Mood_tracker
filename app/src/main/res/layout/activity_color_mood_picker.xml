@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ColorMoodPicker">
+    tools:context=".ColorMoodPicker"
+    >
 
-    <com.google.android.material.slider.Slider
+   <com.google.android.material.slider.Slider
         android:id="@+id/moodSlider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
         android:stepSize="1.0"
         android:value="3.0"
         android:valueFrom="0.0"
         android:valueTo="6.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/askMoodEvaluation"
+
         />
 
 
@@ -38,13 +40,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
         android:text="@string/mood_evaluation"
         android:textColor="#656565"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/askColor" />
+        app:layout_constraintTop_toBottomOf="@+id/mainColorPicker"
+        />
 
     <TextView
         android:id="@+id/askColor"
@@ -57,22 +59,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/mainColorPicker"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Button
         android:id="@+id/saveColorMood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/SAVE"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/moodChosen"
+        />
 
     <Button
         android:id="@+id/mainColorPicker"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="370dp"
+        android:layout_height="100dp"
         android:layout_marginTop="52dp"
         android:onClick="onClickColorButton"
         app:iconGravity="textStart"
@@ -80,5 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

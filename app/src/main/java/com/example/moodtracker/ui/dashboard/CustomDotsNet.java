@@ -9,6 +9,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.example.moodtracker.R;
+import com.example.moodtracker.shapes.Circle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class CustomDotsNet extends View {
 
    public static final int DOTS_NUMBER = 6;
 
+   private Paint linePaint;
+
     public CustomDotsNet(Context context, @Nullable AttributeSet attrs) {
         super(context,attrs);
 
@@ -25,35 +30,40 @@ public class CustomDotsNet extends View {
 
         int radius = 25;
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(getResources().getColor(R.color.purple_700));
+        linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        linePaint.setStyle(Paint.Style.STROKE);
+        linePaint.setColor(getResources().getColor(R.color.purple_700));
+        linePaint.setStrokeWidth(7);
 
-        int baseX = 550;
-        int baseY = 420;
+        int baseX = 385;
+        int baseY = 340;
 
-        dots.add(new Circle(baseX-25, baseY-25,radius,paint));
-        dots.add(new Circle(baseX+25, baseY-25,radius,paint));
-        dots.add(new Circle(baseX+35, baseY,radius,paint));
-        dots.add(new Circle(baseX+25, baseY+25,radius,paint));
-        dots.add(new Circle(baseX-25, baseY+25,radius,paint));
-        dots.add(new Circle(baseX-35, baseY,radius,paint));
+        dots.add(new Circle(baseX-45, baseY-70,radius,paint));
+        dots.add(new Circle(baseX+45, baseY-70,radius,paint));
+        dots.add(new Circle(baseX+80, baseY,radius,paint));
+        dots.add(new Circle(baseX+45, baseY+70,radius,paint));
+        dots.add(new Circle(baseX-45, baseY+70,radius,paint));
+        dots.add(new Circle(baseX-80, baseY,radius,paint));
 
     }
 
     float dX, dY;
     Circle c;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-
+                this.c = null;
                 for (Circle c:
                      dots) {
                     if((event.getX() >= c.getX() - c.getRadius()
                             && event.getX() <= c.getX() + c.getRadius())
                     && (event.getY() >= c.getY() - c.getRadius()
                             && event.getY() <= c.getY() + c.getRadius())) {
-                      //  if(event.getRawX() > c.getX() && event.getRawY() > c.getY()){
                         dX = c.getX() - event.getRawX();
                         dY = c.getY() - event.getRawY();
                         this.c = c;
@@ -64,10 +74,8 @@ public class CustomDotsNet extends View {
             case MotionEvent.ACTION_MOVE:
 
                 if(c != null){
-
                 c.setX((int)(event.getRawX() + dX));
                 c.setY((int)(event.getRawY() + dY));
-
                 }
                 invalidate();
 
@@ -89,6 +97,11 @@ public class CustomDotsNet extends View {
                     , dot.getRadius(),
                     dot.getPaint());
 
+            canvas.drawLine(dot.getX(),
+                            dot.getY(),
+                            dots.get((DOTS_NUMBER - i == 1 ? 0 : i+1)).getX(),
+                            dots.get((DOTS_NUMBER - i == 1 ? 0 : i+1)).getY(),
+                            linePaint);
         }
 
 

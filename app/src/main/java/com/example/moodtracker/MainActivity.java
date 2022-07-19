@@ -2,6 +2,9 @@ package com.example.moodtracker;
 
 
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,7 +16,6 @@ import android.widget.TextView;
 
 import com.example.moodtracker.databinding.ActivityMainBinding;
 import com.example.moodtracker.ui.dashboard.CustomActivityChart;
-import com.example.moodtracker.ui.dashboard.CustomDot;
 import com.example.moodtracker.ui.dashboard.CustomDotsNet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity  {
     public void onClickColorButton(View view) {
         //Переходим на страницу с настройками цвета
         Intent intent = new Intent(this, ColorMoodPicker.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
     public void onClickDailyPictureButton(View view) {

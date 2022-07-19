@@ -90,8 +90,8 @@
 
     <com.example.moodtracker.ui.dashboard.CustomDotsNet
         android:id="@+id/customDotsnet"
-        android:layout_width="410dp"
-        android:layout_height="300dp"
+        android:layout_width="285dp"
+        android:layout_height="255dp"
         app:layout_constraintCircle="@id/customActivityChart"
         app:layout_constraintCircleRadius="0dp"
         android:translationZ="90dp"

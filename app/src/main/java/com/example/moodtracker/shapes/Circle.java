@@ -1,4 +1,4 @@
-package com.example.moodtracker.ui.dashboard;
+package com.example.moodtracker.shapes;
 
 import android.graphics.Paint;
 

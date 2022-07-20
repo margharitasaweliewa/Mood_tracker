@@ -23,4 +23,5 @@
     <string name="color_selection">Choose color associated with your mood</string>
     <string name="today">TODAY</string>
     <string name="select_all">All</string>
+    <string name="picture_selection">Choose picture associated with your mood</string>
 </resources>

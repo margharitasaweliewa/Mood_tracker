@@ -17,9 +17,11 @@
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/ic_statistics_bar.xml" value="0.103" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/ic_today.xml" value="0.247" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/drawable/sharing_button.xml" value="0.226" />
+        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_color_mood_picker.xml" value="0.176" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/activity_select_picture.xml" value="0.264" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_dashboard.xml" value="0.223731884057971" />
-        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_friends.xml" value="0.22644927536231885" />
+        <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_friends.xml" value="0.152" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_home.xml" value="0.223731884057971" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_notifications.xml" value="0.223731884057971" />
         <entry key="..\:/AndroidStudio/Moodtracker/app/src/main/res/layout/fragment_statistics.xml" value="0.22644927536231885" />

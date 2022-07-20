@@ -20,6 +20,7 @@ import com.example.moodtracker.BalanceWheelSettings;
 import com.example.moodtracker.ColorMoodPicker;
 import com.example.moodtracker.MainActivity;
 import com.example.moodtracker.R;
+import com.example.moodtracker.SelectPicture;
 import com.example.moodtracker.databinding.FragmentTodayBinding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -30,6 +31,7 @@ public class TodayFragment extends Fragment  {
     private Button createDailyPicture;
     private ImageButton wheelSettings;
     private Button colorButton;
+    private Button picturePicker;
 
     private TextView foodTextView;
     private TextView relaxTextView;
@@ -98,6 +100,11 @@ public class TodayFragment extends Fragment  {
                 builder.setNeutralButton("CHOOSE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+//Открываю выбор картинки
+                            Intent intent = new Intent(getActivity(), SelectPicture.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        ;
 
                     }
                 });

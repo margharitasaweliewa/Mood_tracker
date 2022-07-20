@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.moodtracker.ui.today.TodayFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 

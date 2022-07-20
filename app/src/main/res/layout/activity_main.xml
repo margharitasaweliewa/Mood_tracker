@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        
+    </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -20,7 +31,7 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <fragment
+   <!-- <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
@@ -31,230 +42,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/colorPicker"
         app:layout_constraintVertical_bias="0.08"
-        app:navGraph="@navigation/mobile_navigation" />
-
-    <Button
-        android:id="@+id/dailypicture"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="364dp"
-        android:onClick="onClickColorButton"
-        android:text="@string/daily_picture"
-        android:textSize="20sp"
-        app:cornerRadius="30dp"
-        app:icon="@drawable/ic_pictures"
-        app:iconPadding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/dailynotes"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="444dp"
-        android:onClick="onClickDailyPictureButton"
-        android:text="@string/daily_notes"
-        android:textSize="20sp"
-        app:cornerRadius="30dp"
-        app:icon="@drawable/ic_pencil"
-        app:iconPadding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/colorPicker"
-        android:layout_width="38dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="5dp"
-        android:onClick="onClickColorButton"
-        android:shape="oval"
-        app:cornerRadius="70dp"
-        app:icon="@drawable/ic_pencil"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <com.example.moodtracker.ui.dashboard.CustomActivityChart
-        android:id="@+id/customActivityChart"
-        android:layout_width="410dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="55dp"
-        android:visibility="visible"
-        app:layout_constraintLeft_toLeftOf="@id/container"
-        app:layout_constraintTop_toTopOf="@id/container" />
-
-    <com.example.moodtracker.ui.dashboard.CustomDotsNet
-        android:id="@+id/customDotsnet"
-        android:layout_width="285dp"
-        android:layout_height="255dp"
-        app:layout_constraintCircle="@id/customActivityChart"
-        app:layout_constraintCircleRadius="0dp"
-        android:translationZ="90dp"
-        android:visibility="visible"
-        app:layout_constraintLeft_toLeftOf="@id/container"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+        app:navGraph="@navigation/mobile_navigation" /> -->
 
 
-<ImageView
-android:id="@+id/icon_food"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="42dp"
-app:layout_constraintCircle="@id/customActivityChart"
-   app:layout_constraintCircleRadius="150dp"
-    app:layout_constraintCircleAngle="332"
-app:srcCompat="@drawable/ic_apple"
-    tools:ignore="MissingConstraints" />
-
-<ImageView
-android:id="@+id/icon_relax"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="34dp"
-    app:layout_constraintCircle="@id/customActivityChart"
-    app:layout_constraintCircleRadius="155dp"
-    app:layout_constraintCircleAngle="33"
-app:srcCompat="@drawable/ic_coffee_cup"
-    tools:ignore="MissingConstraints" />
-
-<ImageView
-android:id="@+id/icon_sport"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="40dp"
-    app:layout_constraintCircle="@id/customActivityChart"
-    app:layout_constraintCircleRadius="160dp"
-    app:layout_constraintCircleAngle="90"
-app:srcCompat="@drawable/ic_dumbbell"
-    tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/icon_social"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintCircle="@id/customActivityChart"
-        app:layout_constraintCircleAngle="147"
-        app:layout_constraintCircleRadius="155dp"
-        app:srcCompat="@drawable/ic_people"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="255dp" />
-
-    <ImageView
-        android:id="@+id/icon_pillow"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintCircle="@id/customActivityChart"
-        app:layout_constraintCircleAngle="210"
-        app:layout_constraintCircleRadius="148dp"
-        app:srcCompat="@drawable/ic_pillow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="245dp" />
-
-    <ImageView
-android:id="@+id/icon_work"
-android:layout_width="30dp"
-android:layout_height="30dp"
-android:layout_marginStart="24dp"
-android:layout_marginTop="34dp"
-    app:layout_constraintCircle="@id/customActivityChart"
-    app:layout_constraintCircleRadius="150dp"
-    app:layout_constraintCircleAngle="270"
-app:srcCompat="@drawable/ic_work"
-    tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView_work"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Work"
-        app:layout_constraintTop_toBottomOf="@id/icon_work"
-        app:layout_constraintRight_toRightOf="@id/icon_work"
-         />
-
-    <TextView
-        android:id="@+id/textView_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_food"
-        app:layout_constraintTop_toBottomOf="@id/icon_food"
-        app:layout_constraintRight_toRightOf="@id/icon_food"
-        />
-
-    <TextView
-        android:id="@+id/textView_relax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_relax"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="35dp"
-        app:layout_constraintTop_toBottomOf="@id/icon_relax"
-        app:layout_constraintRight_toRightOf="@id/icon_relax"
-        />
-
-    <TextView
-        android:id="@+id/textView_sport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_sport"
-        tools:layout_editor_absoluteX="350dp"
-        tools:layout_editor_absoluteY="165dp"
-        app:layout_constraintTop_toBottomOf="@id/icon_sport"
-        app:layout_constraintRight_toRightOf="@id/icon_sport"
-        />
-
-    <TextView
-        android:id="@+id/textView_sleep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_sleep"
-        app:layout_constraintTop_toBottomOf="@id/icon_pillow"
-        app:layout_constraintRight_toRightOf="@id/icon_pillow"
-        />
-
-    <TextView
-        android:id="@+id/textView_social"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name_social"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="287dp"
-        app:layout_constraintTop_toBottomOf="@id/icon_social"
-        app:layout_constraintRight_toRightOf="@id/icon_social"
-       />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:onClick="onClickWheelSettings"
-        app:srcCompat="@drawable/ic_settings"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="64dp" />
-
-    <TextView
-        android:id="@+id/whichDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/today"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/customActivityChart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toEndOf="@+id/colorPicker"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,17 @@
 package com.example.moodtracker;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.moodtracker.databinding.ActivityColorMoodPickerBinding;
-import com.example.moodtracker.databinding.ActivityMainBinding;
-import com.example.moodtracker.ui.CustomTransparentRecktangle;
-import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.slider.Slider;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;

@@ -1,4 +1,4 @@
-package com.example.moodtracker.ui.dashboard;
+package com.example.moodtracker.ui.today;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -25,6 +25,13 @@ public class CustomDotsNet extends View {
 
     public CustomDotsNet(Context context, @Nullable AttributeSet attrs) {
         super(context,attrs);
+        setSaveEnabled(true);
+
+    }
+
+
+
+    public void init() {
 
         this.dots = new ArrayList<>();
 

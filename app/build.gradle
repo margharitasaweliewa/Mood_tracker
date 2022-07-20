@@ -32,6 +32,7 @@ android {
         enabled = true
     }
 }
+
 dependencies {
     api 'com.google.android.material:material:1.1.0-alpha06'
     implementation 'com.jaredrummler:colorpicker:1.1.0'

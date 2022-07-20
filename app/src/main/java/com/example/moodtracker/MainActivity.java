@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.moodtracker.databinding.ActivityMainBinding;
 import com.example.moodtracker.ui.friends.FriendsFragment;
+import com.example.moodtracker.ui.statistics.StatisticsFragment;
 import com.example.moodtracker.ui.today.TodayFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity  {
                     replaceFragment(todayFragment);
                     break;
                 case R.id.navigation_statistics:
+                    replaceFragment(new StatisticsFragment());
                     break;
 
             }

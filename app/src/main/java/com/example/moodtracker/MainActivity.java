@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import com.example.moodtracker.databinding.ActivityMainBinding;
 import com.example.moodtracker.ui.dashboard.CustomActivityChart;
 import com.example.moodtracker.ui.dashboard.CustomDotsNet;

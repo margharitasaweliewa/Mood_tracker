@@ -6,17 +6,226 @@
     android:layout_height="match_parent"
     tools:context=".ui.statistics.StatisticsFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/nav_view"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/windowBackground"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:menu="@menu/bottom_nav_menu" />
+
+<com.skyhope.eventcalenderlibrary.CalenderEvent
+    android:id="@+id/calender_event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:selector_color="@color/purple_500"
+    tools:layout_editor_absoluteX="73dp"
+    tools:layout_editor_absoluteY="-34dp">
+</com.skyhope.eventcalenderlibrary.CalenderEvent>
+
+<ImageButton
+    android:id="@+id/button_sport"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_dumbbell"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.65"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/calender_event" />
+
+<ImageButton
+    android:id="@+id/image_work"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_work"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/calender_event"
+    app:layout_constraintHorizontal_bias="0.8"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/calender_event" />
+
+<ImageButton
+    android:id="@+id/button_food"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_apple"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.33"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<ImageButton
+    android:id="@+id/button_relax"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_coffee_cup"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.95"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<ImageButton
+    android:id="@+id/button_social"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_people"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.17"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<ImageButton
+    android:id="@+id/button_sleep"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_pillow"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.46"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<ImageButton
+    android:id="@+id/button_all"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:src="@drawable/ic_select_all"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.02"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/textView_all"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/select_all"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toStartOf="@+id/button_social"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/button_all"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_social"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_social"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toStartOf="@+id/button_food"
+    app:layout_constraintStart_toEndOf="@+id/button_all"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_food"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_food"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/button_food"
+    app:layout_constraintStart_toStartOf="@+id/button_food"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_sleep"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_sleep"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/button_sleep"
+    app:layout_constraintStart_toStartOf="@+id/button_sleep"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_sport"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_sport"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/button_sport"
+    app:layout_constraintStart_toStartOf="@+id/button_sport"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_relax"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_relax"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/button_relax"
+    app:layout_constraintStart_toEndOf="@+id/image_work"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+<TextView
+    android:id="@+id/calendarView_sport3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="@string/name_work"
+    app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+    app:layout_constraintEnd_toEndOf="@+id/image_work"
+    app:layout_constraintStart_toStartOf="@+id/image_work"
+    app:layout_constraintTop_toBottomOf="@+id/button_social"
+    app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_weight="1"
+        android:src="@drawable/Worldcloud"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarView_sleep"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

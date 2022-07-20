@@ -19,7 +19,8 @@
     <string name="name_work">Work</string>
     <string name="name_relax">Relax</string>
     <string name="SAVE">SAVE</string>
-    <string name = "mood_evaluation">Evaluate how you feel today</string>
-    <string name = "color_selection">Choose color associated with your mood</string>
+    <string name="mood_evaluation">Evaluate how you feel today</string>
+    <string name="color_selection">Choose color associated with your mood</string>
     <string name="today">TODAY</string>
+    <string name="select_all">All</string>
 </resources>

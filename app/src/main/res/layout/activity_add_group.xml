@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/create_group_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a new group"
+        android:textSize="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_group"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/create_group_textView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter agroup name..."
+        />
+
+    <Button
+        android:id="@+id/create_group_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_group"
+        android:text="+ ADD A GROUP PHOTO"
+        />
+
+    <TextView
+        android:id="@+id/choose_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose contacts for the group"
+        android:textSize="25dp"
+        app:layout_constraintTop_toBottomOf="@id/create_group_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"/>
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list_view"
+        android:layout_width="370dp"
+        android:layout_height="425dp"
+        app:layout_constraintTop_toBottomOf="@id/choose_contacts"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

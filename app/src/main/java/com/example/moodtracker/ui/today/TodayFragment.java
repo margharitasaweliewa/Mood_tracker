@@ -28,10 +28,10 @@ public class TodayFragment extends Fragment  {
 
     private FragmentTodayBinding binding;
 
-    private Button createDailyPicture;
+    private ImageButton createDailyPicture;
     private ImageButton wheelSettings;
     private Button colorButton;
-    private Button picturePicker;
+    private ImageButton picturePicker;
 
     private TextView foodTextView;
     private TextView relaxTextView;
@@ -156,6 +156,35 @@ public class TodayFragment extends Fragment  {
             //Надо проверить, чтобы оно срабатывало((((
             DrawableCompat.setTint(buttonDrawable, intent.getIntExtra("color", 1));
             colorButton.setBackground(buttonDrawable);
+        }
+        //Picture chosen
+        else if(intent.hasExtra("picture"))
+        {
+            picturePicker = binding.dailypicture;
+            picturePicker.setMaxHeight(142);
+            picturePicker.setMaxWidth(142);
+            //Find picture id
+            String image = intent.getStringExtra("picture");
+            switch (image){
+                case "tree1":
+                    picturePicker.setBackgroundResource(R.drawable.tree1);
+                break;
+                case "tree2":
+                    picturePicker.setBackgroundResource(R.drawable.tree2);
+                    break;
+                case "tree3":
+                    picturePicker.setBackgroundResource(R.drawable.tree3);
+                    break;
+                case "tree4":
+                    picturePicker.setBackgroundResource(R.drawable.tree4);
+                    break;
+                case "tree5":
+                    picturePicker.setBackgroundResource(R.drawable.tree5);
+                    break;
+                case "tree6":
+                    picturePicker.setBackgroundResource(R.drawable.tree6);
+                    break;
+            }
         }
     }
 

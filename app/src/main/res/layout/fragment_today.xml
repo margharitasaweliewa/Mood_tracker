@@ -7,26 +7,11 @@
     tools:context=".ui.today.TodayFragment">
 
     <Button
-        android:id="@+id/dailypicture"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="384dp"
-        android:onClick="onClickDailyPictureButton"
-        android:text="@string/daily_picture"
-        android:textSize="20sp"
-        app:cornerRadius="30dp"
-        app:icon="@drawable/ic_pictures"
-        app:iconPadding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/dailynotes"
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="464dp"
+        android:layout_marginTop="524dp"
         android:text="@string/daily_notes"
         android:textSize="20sp"
         app:cornerRadius="30dp"
@@ -233,6 +218,20 @@
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toEndOf="@+id/colorPicker"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/dailypicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dailypicturebutton"
+        app:layout_constraintBottom_toTopOf="@+id/dailynotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customActivityChart"
+        app:layout_constraintVertical_bias="0.83" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

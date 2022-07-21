@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageButton
+        android:id="@+id/dailynotes_2group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toEndOf="@+id/dailynotes_1group"
+        app:layout_constraintTop_toBottomOf="@+id/button_notes"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailynotes_3group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toEndOf="@+id/dailynotes_2group"
+        app:layout_constraintTop_toBottomOf="@+id/button_notes"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailynotes_1group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_notes"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <TextView
+        android:id="@+id/information_to_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/information_to_share"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/information_to_share" />
+
+    <TextView
+        android:id="@+id/people_share_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="65dp"
+        android:text="@string/people_share_to"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_picture"
+        tools:text="@string/people_share_to" />
+
+    <ToggleButton
+        android:id="@+id/button_color"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/toogle_button"
+        android:gravity="center_horizontal|top"
+        android:textColor="@color/black"
+        android:textOff="@string/button_color"
+        android:textOn="@string/button_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/information_to_share" />
+
+    <ToggleButton
+        android:id="@+id/button_picture"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/toogle_button"
+        android:gravity="center_horizontal|top"
+        android:textColor="@color/black"
+        android:textOff="@string/button_picture"
+        android:textOn="@string/button_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_color" />
+
+    <ToggleButton
+        android:id="@+id/button_wheel"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/toogle_button"
+        android:gravity="center_horizontal|top"
+        android:textColor="@color/black"
+        android:textOff="@string/button_balance_wheel"
+        android:textOn="@string/button_balance_wheel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/information_to_share" />
+
+    <ToggleButton
+        android:id="@+id/button_notes"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/toogle_button"
+        android:gravity="center_horizontal|top"
+        android:textColor="@color/black"
+        android:textOff="@string/button_notes"
+        android:textOn="@string/button_notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_wheel" />
+
+    <ImageButton
+        android:id="@+id/dailycolor_1group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:srcCompat="@drawable/doctors" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailycolor_2group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toEndOf="@+id/dailycolor_1group"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/family" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailycolor_3group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toEndOf="@+id/dailycolor_2group"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:layout_constraintVertical_bias="0.866" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/balancewhell_1group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/doctors"/>
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/balancewhell_2group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toEndOf="@+id/balancewhell_1group"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/balancewhell_3group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/button_picture"
+        app:layout_constraintStart_toEndOf="@+id/balancewhell_2group"
+        app:layout_constraintTop_toBottomOf="@+id/button_color"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailypicture_1group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_picture"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/colleagues"/>
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailypicture_2group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toEndOf="@+id/dailypicture_1group"
+        app:layout_constraintTop_toBottomOf="@+id/button_picture"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/dailypicture_3group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/people_share_to"
+        app:layout_constraintStart_toEndOf="@+id/dailypicture_2group"
+        app:layout_constraintTop_toBottomOf="@+id/button_picture"
+        app:layout_constraintVertical_bias="1.0" />
+    <ImageButton
+        android:id="@+id/add_sharing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/addbutton"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintRight_toRightOf="parent"
+        android:translationZ="90dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

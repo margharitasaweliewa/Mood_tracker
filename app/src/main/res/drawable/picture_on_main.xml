@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <solid android:adjustViewBounds="true"
+            android:background="@color/white"
+            android:scaleType="fitCenter"></solid>
+        <size android:maxWidth="142dp"
+        android:maxHeight="142dp"> </size>
+    </item>
+</selector>

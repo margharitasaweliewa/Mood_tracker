@@ -24,9 +24,85 @@
     app:selector_color="@color/purple_500"
     tools:layout_editor_absoluteX="73dp"
     tools:layout_editor_absoluteY="-34dp">
+
 </com.skyhope.eventcalenderlibrary.CalenderEvent>
 
-<ImageButton
+
+        <ImageView
+            android:id="@+id/circle_17"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="170dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circle_18"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="170dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circle_19"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="160dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_red_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circle_20"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="160dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/circle_21"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="160dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/circle_22"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="303dp"
+            android:layout_marginTop="170dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/circle_23"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="362dp"
+            android:layout_marginTop="170dp"
+            android:layout_weight="1"
+            android:src="@drawable/circle_yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
     android:id="@+id/button_sport"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

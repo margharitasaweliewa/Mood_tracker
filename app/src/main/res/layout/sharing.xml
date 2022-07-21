@@ -49,12 +49,11 @@
         android:id="@+id/button_color"
         android:layout_width="190dp"
         android:layout_height="92dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal|top"
         android:text="@string/button_color"
-        android:backgroundTint="@color/white"
         android:textColor="@color/black"
-        android:gravity = "center_horizontal|top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/information_to_share" />
 

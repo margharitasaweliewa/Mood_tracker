@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.moodtracker.databinding.ActivityMainBinding;
 import com.example.moodtracker.ui.friends.FriendsFragment;
@@ -16,6 +17,7 @@ import com.example.moodtracker.ui.statistics.StatisticsFragment;
 import com.example.moodtracker.ui.today.TodayFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
@@ -27,6 +29,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity  {
     //Кнопка для выбора цвета
@@ -44,12 +50,17 @@ public class MainActivity extends AppCompatActivity  {
     private TextView socialTextView;
     private TextView workTextView;
 
+
+    private List<String> contacts;
+    private String groupName;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         TodayFragment todayFragment = new TodayFragment();
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -68,6 +79,7 @@ public class MainActivity extends AppCompatActivity  {
         createDailyPicture = findViewById(R.id.dailypicture);
         //CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
         //CustomDotsNet customDotsNet = new CustomDotsNet(this,null);
+
 
         binding.navView.setOnItemSelectedListener(item -> {
 
@@ -94,6 +106,7 @@ public class MainActivity extends AppCompatActivity  {
     private void replaceFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
@@ -108,8 +121,13 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onResume() {
         super.onResume();
+        Intent recievingIntent = getIntent();
 
+        if (recievingIntent.hasExtra("contacts")){
 
+            replaceFragment(new FriendsFragment());
+            binding.navView.setSelectedItemId(R.id.navigation_friends);
+        }
     }
 
 

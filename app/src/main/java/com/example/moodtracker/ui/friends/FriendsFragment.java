@@ -13,14 +13,19 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.moodtracker.R;
 import com.example.moodtracker.databinding.FragmentFriendsBinding;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FriendsFragment extends Fragment {
 
@@ -31,7 +36,13 @@ public class FriendsFragment extends Fragment {
     ExpandableListView expandableListView;
     CustomList expandableListAdapter;
     List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
+    public HashMap<String, List<String>> expandableListDetail;
+
+    List<String> contacts;
+
+    String groupName;
+
+    ImageButton delete;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,16 +61,20 @@ public class FriendsFragment extends Fragment {
 
         });
 
-/*
+        expandableListDetail = new HashMap<>();
+
         expandableListView = (ExpandableListView) binding.expandableListView;
-       // expandableListDetail = //add data
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        expandableListAdapter = new CustomList(getActivity(), expandableListTitle, expandableListDetail);
-        expandableListView.setAdapter(expandableListAdapter);
+        //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        //expandableListAdapter = new CustomList(getActivity(), expandableListTitle, expandableListDetail);
+       // expandableListView.setAdapter(expandableListAdapter);
+
+
+
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
             @Override
             public void onGroupExpand(int groupPosition) {
+
                 Toast.makeText(getContext(),
                         expandableListTitle.get(groupPosition) + " List Expanded.",
                         Toast.LENGTH_SHORT).show();
@@ -70,10 +85,10 @@ public class FriendsFragment extends Fragment {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
+
                 Toast.makeText(getContext(),
                         expandableListTitle.get(groupPosition) + " List Collapsed.",
                         Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -92,7 +107,31 @@ public class FriendsFragment extends Fragment {
                 return false;
             }
         });
-*/
+
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Intent recievingIntent = getActivity().getIntent();
+
+        if (recievingIntent.hasExtra("contacts")) {
+
+            contacts = Arrays.asList(recievingIntent.getStringArrayExtra("contacts"));
+
+            groupName = recievingIntent.getStringExtra("groupName");
+
+            if (contacts != null) {
+                expandableListDetail.put(groupName, contacts);
+                expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+                expandableListAdapter = new CustomList(getActivity(), expandableListTitle, expandableListDetail);
+                expandableListView.setAdapter(expandableListAdapter);
+                expandableListAdapter.notifyDataSetChanged();
+            } else {
+                Toast.makeText(getActivity(), "contacts is null", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

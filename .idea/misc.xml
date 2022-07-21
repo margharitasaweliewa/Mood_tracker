@@ -32,6 +32,8 @@
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/custom_hexagon_chart.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/custom_input.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_apple.xml" value="0.209" />
+        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_coffee_cup.xml" value="0.1045" />
+        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1045" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_dumbbell.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_friends.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.209" />
@@ -40,10 +42,12 @@
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_pencil.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_people.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_pictures.xml" value="0.1615" />
+        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_select_all.xml" value="0.1045" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_settings.xml" value="0.1615" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_statistics_bar.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/ic_today.xml" value="0.209" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/sharing_button.xml" value="0.209" />
+        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/drawable/text_view_add_group_bg.xml" value="0.251" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/activity_add_group.xml" value="0.2015625" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/activity_balance_wheel_settings.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/activity_color_mood_picker.xml" value="0.20074349442379183" />
@@ -56,7 +60,7 @@
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/fragment_statistics.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/fragment_today.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/groups_activity.xml" value="0.1" />
-        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/list_group.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/list_group.xml" value="0.33" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/list_item.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/list_item_add_group.xml" value="0.3859375" />
         <entry key="..\:/Users/Alexandr/AndroidStudioProjects/Mood_tracker/app/src/main/res/layout/sharing.xml" value="0.2015625" />

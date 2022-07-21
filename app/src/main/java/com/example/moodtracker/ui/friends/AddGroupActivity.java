@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.DataSetObserver;
@@ -14,10 +15,13 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +30,13 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.moodtracker.MainActivity;
 import com.example.moodtracker.R;
 import com.example.moodtracker.databinding.ActivityAddGroupBinding;
 import com.example.moodtracker.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,6 +51,14 @@ public class AddGroupActivity extends AppCompatActivity {
 
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 75;
 
+    private SearchView searchView;
+
+    private List<String> searchResult;
+
+    private ImageButton imageButton;
+
+    private List<String> selectedItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +68,73 @@ public class AddGroupActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.list_view);
 
+        selectedItems = new ArrayList<>();
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+
+            String selectedItem = parent.getItemAtPosition(position).toString();
+
+            if(!selectedItems.contains(selectedItem)) {
+                selectedItems.add(selectedItem);
+            } else {
+                selectedItems.remove(selectedItem);
+            }
+        });
+
         showContacts();
+
+        searchView = binding.searchBarContacts;
+
+        searchResult = new ArrayList<>();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                searchResult = new ArrayList<>();
+
+                for (String s:
+                        contacts) {
+                    if(s.contains(newText))
+                        searchResult.add(s);
+                }
+                ArrayAdapter arrayAdapter =
+                        new ArrayAdapter<>(getApplicationContext(),R.layout.list_item_add_group,searchResult);
+                listView.setAdapter(arrayAdapter);
+                arrayAdapter.notifyDataSetChanged();
+
+                return true;
+            }
+        });
+
+        imageButton = binding.addGroupOk;
+
+        imageButton.setOnClickListener(v -> {
+
+            if (!binding.editTextGroup.getText().toString().equals("") && selectedItems.size() > 0){
+                Intent intent = new Intent(this, MainActivity.class);
+
+            //get selected items from list
+
+                String[] contactsArr = new String[selectedItems.size()];
+
+                selectedItems.toArray(contactsArr);
+
+                intent.putExtra("contacts",contactsArr);
+                intent.putExtra("groupName",binding.editTextGroup.getText().toString());
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this,
+                        "Enter a group name and select some contacts",Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
 
@@ -89,7 +169,10 @@ public class AddGroupActivity extends AppCompatActivity {
 
             contacts = getContactList();
 
-        listView.setAdapter(new ArrayAdapter<>(this,R.layout.list_item_add_group,contacts));
+            listView.setAdapter(new ArrayAdapter<>(this,R.layout.list_item_add_group,contacts));
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            listView.setItemsCanFocus(false);
+
         }
     }
 

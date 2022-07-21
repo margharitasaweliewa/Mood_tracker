@@ -1,17 +1,24 @@
 package com.example.moodtracker.ui.friends;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.moodtracker.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class CustomList extends BaseExpandableListAdapter {
 
@@ -19,11 +26,14 @@ public class CustomList extends BaseExpandableListAdapter {
     private List<String> expandableListTitle;
     private HashMap<String, List<String>> expandableListDetail;
 
+    public List<ImageButton> deleteButtons;
+
     public CustomList(Context context, List<String> expandableListTitle,
                                        HashMap<String, List<String>> expandableListDetail) {
         this.context = context;
         this.expandableListTitle = expandableListTitle;
         this.expandableListDetail = expandableListDetail;
+        deleteButtons = new ArrayList<>();
     }
 
     @Override
@@ -40,6 +50,7 @@ public class CustomList extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int listPosition, final int expandedListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
+
         final String expandedListText = (String) getChild(listPosition, expandedListPosition);
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context
@@ -86,6 +97,30 @@ public class CustomList extends BaseExpandableListAdapter {
                 .findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
+
+        /*ImageButton delete = convertView.findViewById(R.id.delete_group);
+        delete.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Do you sure you want delete a group?").setTitle("Delete");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    List<String> keys =  new ArrayList<>(expandableListDetail.keySet());
+                    String key = keys.get(listPosition);
+                    expandableListDetail.remove(key);
+                    notifyDataSetChanged();
+
+                }
+            });
+            builder.setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
+
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
+        });
+
+        deleteButtons.add(delete);*/
+
         return convertView;
     }
 

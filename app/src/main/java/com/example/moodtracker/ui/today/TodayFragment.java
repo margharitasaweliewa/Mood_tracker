@@ -102,10 +102,8 @@ public class TodayFragment extends Fragment  {
                     public void onClick(DialogInterface dialogInterface, int i) {
 //Открываю выбор картинки
                             Intent intent = new Intent(getActivity(), SelectPicture.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
-                        ;
-
                     }
                 });
                 builder.setPositiveButton("TAKE PHOTO", new DialogInterface.OnClickListener() {

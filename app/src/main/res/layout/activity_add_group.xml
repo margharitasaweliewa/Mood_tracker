@@ -47,12 +47,31 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"/>
 
-    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/list_view"
-        android:layout_width="370dp"
-        android:layout_height="425dp"
+    <SearchView
+        android:id="@+id/search_bar_contacts"
+        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:queryHint="Search for contacts"
         app:layout_constraintTop_toBottomOf="@id/choose_contacts"
         app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="410dp"
+        android:layout_height="375dp"
+        app:layout_constraintTop_toBottomOf="@id/search_bar_contacts"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <ImageButton
+        android:id="@+id/add_group_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ok_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:translationZ="90dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

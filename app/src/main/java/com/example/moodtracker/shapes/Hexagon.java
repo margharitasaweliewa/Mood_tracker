@@ -10,49 +10,57 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
 
-/**
- * Created by AnderWeb (Gustavo Claramunt) on 7/10/14.
- */
+
 public class Hexagon extends Drawable {
 
+    private Path point = new Path();
     public static final int SIDES = 6;
+
     private Path hexagon = new Path();
-    private Path temporal = new Path();
+
+
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public Hexagon(int color) {
+
         paint.setColor(color);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(7);
         hexagon.setFillType(Path.FillType.EVEN_ODD);
     }
 
-    @Override
-    public void draw(Canvas canvas) {
 
-        canvas.drawPath(hexagon, paint);
-    }
 
     @Override
     public void setAlpha(int alpha) {
         paint.setAlpha(alpha);
     }
 
-    @Override
-    public void setColorFilter(ColorFilter cf) {
-        paint.setColorFilter(cf);
-    }
 
     @Override
     public int getOpacity() {
         return paint.getAlpha();
     }
 
+
+    @Override
+    public void setColorFilter(ColorFilter cf) {
+        paint.setColorFilter(cf);
+    }
+
+
+
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
         computeHex(bounds);
         invalidateSelf();
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+
+        canvas.drawPath(hexagon, paint);
     }
 
     public void computeHex(Rect bounds) {
@@ -64,26 +72,33 @@ public class Hexagon extends Drawable {
         final int centerY = bounds.top + (height / 2);
 
         hexagon.reset();
-        hexagon.addPath(createHexagon(size, centerX, centerY));
-        hexagon.addPath(createHexagon((int) (size * .8f), centerX, centerY));
+
+        hexagon.addPath(makeHex(size, centerX, centerY));
+
+
+        hexagon.addPath(makeHex((int) (size * .8f), centerX, centerY));
     }
 
-    private Path createHexagon(int size, int centerX, int centerY) {
+    private Path makeHex(int size, int centerX, int centerY) {
         final float section = (float) (2.0 * Math.PI / SIDES);
         int radius = size / 2;
-        Path hex = temporal;
-        hex.reset();
-        hex.moveTo(
+        Path hexagon = point;
+        hexagon.reset();
+        hexagon.moveTo(
                 (float) (centerX + radius * Math.cos(0)),
                 (float) (centerY + radius * Math.sin(0)));
 
+
+
         for (int i = 1; i < SIDES; i++) {
-            hex.lineTo(
+            hexagon.lineTo(
                     (float) (centerX + radius * Math.cos(section * i)),
                     (float) (centerY + radius * Math.sin(section * i)));
         }
 
-        hex.close();
-        return hex;
+
+
+        hexagon.close();
+        return hexagon;
     }
 }

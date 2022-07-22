@@ -42,7 +42,7 @@ public class FriendsFragment extends Fragment {
 
     String groupName;
 
-    ImageButton delete;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -64,9 +64,7 @@ public class FriendsFragment extends Fragment {
         expandableListDetail = new HashMap<>();
 
         expandableListView = (ExpandableListView) binding.expandableListView;
-        //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        //expandableListAdapter = new CustomList(getActivity(), expandableListTitle, expandableListDetail);
-       // expandableListView.setAdapter(expandableListAdapter);
+
 
 
 
@@ -75,9 +73,7 @@ public class FriendsFragment extends Fragment {
             @Override
             public void onGroupExpand(int groupPosition) {
 
-                Toast.makeText(getContext(),
-                        expandableListTitle.get(groupPosition) + " List Expanded.",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -86,9 +82,7 @@ public class FriendsFragment extends Fragment {
             @Override
             public void onGroupCollapse(int groupPosition) {
 
-                Toast.makeText(getContext(),
-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -96,14 +90,7 @@ public class FriendsFragment extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getContext(),
-                        expandableListTitle.get(groupPosition)
-                                + " -> "
-                                + expandableListDetail.get(
-                                expandableListTitle.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT
-                ).show();
+
                 return false;
             }
         });

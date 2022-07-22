@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -59,6 +60,8 @@ public class AddGroupActivity extends AppCompatActivity {
 
     private List<String> selectedItems;
 
+    private EditText editText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,8 +83,6 @@ public class AddGroupActivity extends AppCompatActivity {
                 selectedItems.remove(selectedItem);
             }
         });
-
-        showContacts();
 
         searchView = binding.searchBarContacts;
 
@@ -135,27 +136,41 @@ public class AddGroupActivity extends AppCompatActivity {
             }
         });
 
+        showContacts();
+
+        Intent gettingIntent = getIntent();
+
+        if (gettingIntent.hasExtra("GroupEditName")) {
+
+            editText = findViewById(R.id.edit_text_group);
+            editText.setText(gettingIntent.getStringExtra("GroupEditName"));
+
+            selectedItems.addAll(gettingIntent.getStringArrayListExtra("GroupEditList"));
+
+            contacts.removeAll(selectedItems);
+            listView.setAdapter(new ArrayAdapter<>
+                    (this,R.layout.list_item_add_group,contacts));
+
+        }
+
+
     }
 
 
     private List<String> getContactList() {
         List<String> contacts = new ArrayList<>();
-        // Get the ContentResolver
-        ContentResolver cr = getContentResolver();
-        // Get the Cursor of all the contacts
-        Cursor cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
 
-        // Move the cursor to first. Also check whether the cursor is empty or not.
+        ContentResolver contentResolver = getContentResolver();
+
+        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+
         if (cursor.moveToFirst()) {
-            // Iterate through the cursor
             do {
-                // Get the contacts name
                 @SuppressLint("Range") String name =
                         cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                 contacts.add(name);
             } while (cursor.moveToNext());
         }
-        // Close the curosor
         cursor.close();
 
         return contacts;
@@ -166,7 +181,6 @@ public class AddGroupActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
         }else {
-
             contacts = getContactList();
 
             listView.setAdapter(new ArrayAdapter<>(this,R.layout.list_item_add_group,contacts));
@@ -184,8 +198,7 @@ public class AddGroupActivity extends AppCompatActivity {
                 // Permission is granted
                 showContacts();
             } else {
-                Toast.makeText(this, "Until you grant the permission, we canot " +
-                        "display the names", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Permission not granted!", Toast.LENGTH_SHORT).show();
             }
         }
     }

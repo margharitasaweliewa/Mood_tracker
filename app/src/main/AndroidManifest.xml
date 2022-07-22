@@ -33,6 +33,9 @@
         <activity
             android:name=".ui.friends.AddGroupActivity"
             android:exported="false" />
+
+        <activity android:name=".ui.NotesActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

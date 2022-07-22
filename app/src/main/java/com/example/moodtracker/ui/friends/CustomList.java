@@ -2,12 +2,14 @@ package com.example.moodtracker.ui.friends;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,23 +24,25 @@ import java.util.Set;
 
 public class CustomList extends BaseExpandableListAdapter {
 
+    private HashMap<String, List<String>> listAdapter;
+
     private Context context;
-    private List<String> expandableListTitle;
-    private HashMap<String, List<String>> expandableListDetail;
 
-    public List<ImageButton> deleteButtons;
+    private List<String> groupTitles;
 
-    public CustomList(Context context, List<String> expandableListTitle,
-                                       HashMap<String, List<String>> expandableListDetail) {
+    public List<ImageView> deleteButtons;
+
+    public CustomList(Context context, List<String> groupTitles,
+                                       HashMap<String, List<String>> listAdapter) {
         this.context = context;
-        this.expandableListTitle = expandableListTitle;
-        this.expandableListDetail = expandableListDetail;
+        this.groupTitles = groupTitles;
+        this.listAdapter = listAdapter;
         deleteButtons = new ArrayList<>();
     }
 
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
-        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+        return this.listAdapter.get(this.groupTitles.get(listPosition))
                 .get(expandedListPosition);
     }
 
@@ -60,23 +64,45 @@ public class CustomList extends BaseExpandableListAdapter {
         TextView expandedListTextView = (TextView) convertView
                 .findViewById(R.id.expandedListItem);
         expandedListTextView.setText(expandedListText);
+
+        ImageView delete = convertView.findViewById(R.id.delete_item);
+        delete.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Do you sure you want delete an item?").setTitle("Delete");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    List<String> vals = new ArrayList<>(listAdapter.get(groupTitles.get(listPosition)));
+                    vals.remove(expandedListPosition);
+                    listAdapter.remove(groupTitles.get(listPosition));
+                    listAdapter.put(groupTitles.get(listPosition),vals);
+                    notifyDataSetChanged();
+                }
+            });
+            builder.setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
+
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
+        });
+
         return convertView;
     }
 
     @Override
     public int getChildrenCount(int listPosition) {
-        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+        return this.listAdapter.get(this.groupTitles.get(listPosition))
                 .size();
     }
 
     @Override
     public Object getGroup(int listPosition) {
-        return this.expandableListTitle.get(listPosition);
+        return this.groupTitles.get(listPosition);
     }
 
     @Override
     public int getGroupCount() {
-        return this.expandableListTitle.size();
+        return this.groupTitles.size();
     }
 
     @Override
@@ -98,16 +124,17 @@ public class CustomList extends BaseExpandableListAdapter {
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
 
-        /*ImageButton delete = convertView.findViewById(R.id.delete_group);
+        ImageView delete = convertView.findViewById(R.id.delete_group);
         delete.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage("Do you sure you want delete a group?").setTitle("Delete");
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    List<String> keys =  new ArrayList<>(expandableListDetail.keySet());
+                    List<String> keys =  new ArrayList<>(listAdapter.keySet());
                     String key = keys.get(listPosition);
-                    expandableListDetail.remove(key);
+                    listAdapter.remove(groupTitles.get(listPosition));
+                    groupTitles.remove(listPosition);
                     notifyDataSetChanged();
 
                 }
@@ -119,14 +146,37 @@ public class CustomList extends BaseExpandableListAdapter {
             dialog.show();
         });
 
-        deleteButtons.add(delete);*/
+        ImageView add = convertView.findViewById(R.id.add_member);
+        add.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Do you sure you want to add member?").setTitle("Delete");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context, AddGroupActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("GroupEditName", groupTitles.get(listPosition));
+                    ArrayList<String> res =
+                            new ArrayList<>(listAdapter.get(groupTitles.get(listPosition)));
+                    intent.putStringArrayListExtra("GroupEditList", res);
+                    context.startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
+
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
+        });
+
+        deleteButtons.add(delete);
 
         return convertView;
     }
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override

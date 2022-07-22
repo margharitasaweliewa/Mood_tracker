@@ -21,8 +21,11 @@ import com.example.moodtracker.ColorMoodPicker;
 import com.example.moodtracker.MainActivity;
 import com.example.moodtracker.R;
 import com.example.moodtracker.SelectPicture;
+import com.example.moodtracker.databinding.ActivityNotesBinding;
 import com.example.moodtracker.databinding.FragmentTodayBinding;
+import com.example.moodtracker.ui.NotesActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.tabs.TabLayout;
 
 public class TodayFragment extends Fragment  {
 
@@ -32,7 +35,7 @@ public class TodayFragment extends Fragment  {
     private ImageButton wheelSettings;
     private Button colorButton;
     private ImageButton picturePicker;
-
+    private Button dailyNotes;
     private TextView foodTextView;
     private TextView relaxTextView;
     private TextView sportTextView;
@@ -116,6 +119,18 @@ public class TodayFragment extends Fragment  {
             }
         });
 
+        dailyNotes = binding.dailynotes;
+
+        dailyNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NotesActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
+
         return root;
     }
 
@@ -161,30 +176,41 @@ public class TodayFragment extends Fragment  {
         else if(intent.hasExtra("picture"))
         {
             picturePicker = binding.dailypicture;
-            picturePicker.setMaxHeight(142);
-            picturePicker.setMaxWidth(142);
+            picturePicker.setMaxHeight(400);
+            picturePicker.setMaxWidth(400);
             //Find picture id
             String image = intent.getStringExtra("picture");
+            Drawable d;
+            picturePicker.setMaxHeight(350);
+
             switch (image){
                 case "tree1":
-                    picturePicker.setBackgroundResource(R.drawable.tree1);
+                    d = getResources().getDrawable(R.drawable.tree1);
+                    picturePicker.setImageDrawable(d);
                 break;
                 case "tree2":
-                    picturePicker.setBackgroundResource(R.drawable.tree2);
+                    d = getResources().getDrawable(R.drawable.tree2);
+                    picturePicker.setImageDrawable(d);
                     break;
                 case "tree3":
-                    picturePicker.setBackgroundResource(R.drawable.tree3);
+                    d = getResources().getDrawable(R.drawable.tree3);
+                    picturePicker.setImageDrawable(d);
                     break;
                 case "tree4":
-                    picturePicker.setBackgroundResource(R.drawable.tree4);
+                    d = getResources().getDrawable(R.drawable.tree4);
+                    picturePicker.setImageDrawable(d);
                     break;
                 case "tree5":
-                    picturePicker.setBackgroundResource(R.drawable.tree5);
+                    d = getResources().getDrawable(R.drawable.tree5);
+                    picturePicker.setImageDrawable(d);
                     break;
                 case "tree6":
-                    picturePicker.setBackgroundResource(R.drawable.tree6);
+                    d = getResources().getDrawable(R.drawable.tree6);
+                    picturePicker.setImageDrawable(d);
                     break;
             }
+
+            picturePicker.invalidate();
         }
     }
 

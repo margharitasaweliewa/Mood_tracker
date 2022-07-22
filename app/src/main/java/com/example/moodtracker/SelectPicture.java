@@ -37,6 +37,7 @@ public class SelectPicture extends AppCompatActivity {
         button4 = findViewById(R.id.imageButton_tree4);
         button5 = findViewById(R.id.imageButton_tree5);
         button6 = findViewById(R.id.imageButton_tree6);
+
         //Обьявляем интент из этого активити в MainActivity
         Intent sendingIntent = new Intent(getApplicationContext(), MainActivity.class);
         //устанавливаем флаг что-бы стэк активити почистился и нам опять вернуло MainActivity

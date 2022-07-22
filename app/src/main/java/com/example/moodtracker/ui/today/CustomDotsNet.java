@@ -27,6 +27,7 @@ public class CustomDotsNet extends View {
         super(context,attrs);
         setSaveEnabled(true);
 
+        init();
     }
 
 
@@ -43,15 +44,15 @@ public class CustomDotsNet extends View {
         linePaint.setColor(getResources().getColor(R.color.purple_700));
         linePaint.setStrokeWidth(7);
 
-        int baseX = 385;
-        int baseY = 340;
+        int baseX = 368;
+        int baseY = 335;
 
-        dots.add(new Circle(baseX-45, baseY-70,radius,paint));
-        dots.add(new Circle(baseX+45, baseY-70,radius,paint));
-        dots.add(new Circle(baseX+80, baseY,radius,paint));
-        dots.add(new Circle(baseX+45, baseY+70,radius,paint));
-        dots.add(new Circle(baseX-45, baseY+70,radius,paint));
-        dots.add(new Circle(baseX-80, baseY,radius,paint));
+        dots.add(new Circle(baseX-45-80, baseY-70-120,radius,paint));
+        dots.add(new Circle(baseX+45+80, baseY-70-120,radius,paint));
+        dots.add(new Circle(baseX+80+120, baseY,radius,paint));
+        dots.add(new Circle(baseX+45+80, baseY+70+120,radius,paint));
+        dots.add(new Circle(baseX-45-80, baseY+70+120,radius,paint));
+        dots.add(new Circle(baseX-80-120, baseY,radius,paint));
 
     }
 

@@ -6,8 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity  {
     private Button colorPicker;
     private ActivityMainBinding binding;
     private static final int firstId = 1;
-    private Button createDailyPicture;
+    private ImageButton createDailyPicture;
 // id нужны для реализации метода onColorSelected
 
     //поля для TextView
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private List<String> contacts;
     private String groupName;
-
+    private int color;
 
 
     @Override
@@ -66,19 +71,10 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(binding.getRoot());
         binding.navView.setSelectedItemId(R.id.navigation_today);
         replaceFragment(todayFragment);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-       /* AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_friends, R.id.navigation_today, R.id.navigation_statistics)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);*/
-        //Инициализируем поля
-        colorPicker = findViewById(R.id.colorPicker);
-        createDailyPicture = findViewById(R.id.dailypicture);
-        //CustomActivityChart customActivityChart = new CustomActivityChart(this,null);
-        //CustomDotsNet customDotsNet = new CustomDotsNet(this,null);
+
+        contacts = new ArrayList<>();
+
+
 
 
         binding.navView.setOnItemSelectedListener(item -> {
@@ -100,8 +96,52 @@ public class MainActivity extends AppCompatActivity  {
             return true;
         });
 
+        Intent recievingIntent = getIntent();
+        if (recievingIntent != null) {
+
+            if (recievingIntent.hasExtra("contacts")) {
+                contacts = Arrays.asList(recievingIntent.getStringArrayExtra("contacts"));
+                groupName = recievingIntent.getStringExtra("groupName");
+                replaceFragment(new FriendsFragment());
+                binding.navView.setSelectedItemId(R.id.navigation_friends);
+
+            } else if(recievingIntent.hasExtra("color")) {
+
+               color = recievingIntent.getIntExtra("color", 1);
+
+            }
+        }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        getMenuInflater().inflate(R.menu.top_menu, menu);
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        switch (item.getItemId()) {
+            case R.id.shareButton:
+
+                Intent intent = new Intent(this, Sharing.class);
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                ArrayList<String> res = new ArrayList<>(contacts);
+                intent.putStringArrayListExtra("contacts",res);
+                intent.putExtra("groupName",groupName);
+                intent.putExtra("color", color);
+                startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void replaceFragment(Fragment fragment) {
 
@@ -114,20 +154,11 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    /*ивент срабатывает когда мы возвращаемся в этот активити из другого
-     * https://developer.android.com/guide/components/activities/activity-lifecycle
-     *
-     * */
+
     @Override
     protected void onResume() {
         super.onResume();
-        Intent recievingIntent = getIntent();
 
-        if (recievingIntent.hasExtra("contacts")){
-
-            replaceFragment(new FriendsFragment());
-            binding.navView.setSelectedItemId(R.id.navigation_friends);
-        }
     }
 
 
